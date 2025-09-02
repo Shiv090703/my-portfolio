@@ -26,7 +26,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* 👇 Add favicon links here */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/profile.svg" sizes="any" />
         <link rel="apple-touch-icon" href="/profile.svg" />
       </head>
 
