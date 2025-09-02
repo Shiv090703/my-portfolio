@@ -64,7 +64,9 @@ export default function Portfolio() {
       {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 bg-[#0a192f]/90 backdrop-blur border-b border-gray-800 text-white z-50">
         <div className="max-w-6xl mx-auto flex justify-between items-center p-4">
-          <h1 className="text-lg font-bold tracking-wide">Shivam Rana</h1>
+         <h1 className="text-3xl md:text-4xl font-extrabold tracking-wide text-white">
+                Shivam Rana
+              </h1>
           <div className="space-x-6">
             {[
               "Home",
@@ -123,7 +125,7 @@ export default function Portfolio() {
     <p className="text-green-400 mb-2 text-sm">Hi, my name is</p>
 
           <h2 className="text-5xl md:text-7xl font-extrabold text-white mb-4">
-            Shivam Rana<span className="text-green-400">.</span>
+            Shivam Rana
           </h2>
 
           <h3 className="text-2xl md:text-4xl font-semibold text-gray-300 mb-6">
@@ -235,7 +237,7 @@ export default function Portfolio() {
                     className="flex flex-col items-center bg-[#112240] p-6 rounded-lg border border-gray-700 hover:border-green-400 shadow-md transition cursor-pointer"
                   >
                     <div className="mb-4">{skill.icon}</div>
-                    <span className="text-green-400 font-medium">{skill.name}</span>
+                    <span className="text-white font-medium">{skill.name}</span>
                   </motion.div>
                 ))}
               </div>
