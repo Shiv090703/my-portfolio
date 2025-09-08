@@ -150,7 +150,7 @@ export default function Portfolio() {
 
           <div className="flex flex-wrap justify-center md:justify-start gap-4">
             <a
-              href="/Shivam Rana G (1) (1).pdf"
+              href="/Shivam-Rana.pdf"
               download
               className="px-6 py-3 border border-green-400 text-green-400 rounded-md hover:bg-green-400 hover:text-[#0a192f] transition"
             >
@@ -434,7 +434,7 @@ export default function Portfolio() {
               Download my resume to see my full education, projects, and skills.
             </p>
             <a
-              href="/Shivam Rana G (1) (1).pdf"
+              href="/Shivam-Rana.pdf"
               download
               className="px-8 py-3 border border-green-400 text-green-400 rounded-md hover:bg-green-400 hover:text-[#0a192f] transition text-sm font-medium"
             >
