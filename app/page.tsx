@@ -6,8 +6,7 @@ import { FaJava, FaMicrosoft } from "react-icons/fa";
 import { FaGraduationCap } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { Typewriter } from 'react-simple-typewriter';
-
-
+import TargetCursor from '../components/TargetCursor'; // if in parent folder
 export default function Portfolio() {
   const [active, setActive] = useState("Home");
   // Smooth scroll
@@ -69,14 +68,17 @@ export default function Portfolio() {
   return (
 
     <div className="bg-[#0a192f] text-gray-300 font-sans scroll-smooth">
-      
+      <TargetCursor 
+        spinDuration={2}
+        hideDefaultCursor={true}
+      />
       {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 bg-[#0a192f]/90 backdrop-blur border-b border-gray-800 text-white z-50">
         <div className="max-w-6xl mx-auto flex justify-between items-center p-4">
           {/* Logo / Title → scrolls to Home */}
           <button
             onClick={() => scrollTo("Home")}
-            className="text-3xl md:text-4xl font-extrabold tracking-wide text-white hover:text-green-400 transition"
+            className="text-3xl md:text-4xl font-extrabold tracking-wide text-white hover:text-green-400 transition cursor-target"
           >
             Shivam Rana
           </button>
@@ -95,7 +97,7 @@ export default function Portfolio() {
               <button
                 key={id}
                 onClick={() => scrollTo(id)}
-                className={`capitalize text-sm transition ${active === id
+                className={`capitalize text-sm transition cursor-target ${active === id
                   ? "text-green-400 font-semibold"
                   : "text-gray-400 hover:text-green-400"
                   }`}
@@ -129,7 +131,7 @@ export default function Portfolio() {
             <img
               src="/profile.jpg"
               alt="Shivam Rana"
-              className="w-48 h-48 md:w-64 md:h-64 rounded-full shadow-lg object-cover"
+              className="w-48 h-48 md:w-64 md:h-64 rounded-full shadow-lg object-cover cursor-target"
             />
 
             {/* Open to Work Badge */}
@@ -146,9 +148,9 @@ export default function Portfolio() {
           variants={fadeInUp}
           className="max-w-2xl"
         >
-          <p className="text-green-400 mb-2 text-sm">Hi, my name is</p>
+          <p className="text-green-400 mb-2 text-sm ">Hi, my name is</p>
 
-          <h2 className="text-5xl md:text-7xl font-extrabold text-white mb-4">
+          <h2 className="text-5xl md:text-7xl font-extrabold text-white mb-4 cursor-target">
             Shivam Rana
           </h2>
 
@@ -167,7 +169,7 @@ export default function Portfolio() {
             </span>
           </h3>
 
-          <p className="text-gray-400 max-w-xl mb-8 leading-relaxed">
+          <p className="text-gray-400 max-w-xl mb-8 leading-relaxed cursor-target">
             I have recently completed my <span className="text-white font-semibold">MSc in Information Technology</span>,
             building a solid foundation in <span className="text-white font-semibold">C#, ASP.NET, Java, and modern web technologies</span>.
             Currently, I am seeking new opportunities to apply my knowledge, sharpen my skills, and contribute to impactful digital solutions
@@ -180,21 +182,21 @@ export default function Portfolio() {
             <a
               href="/Shivam-Rana.pdf"
               download
-              className="px-6 py-3 border border-green-400 text-green-400 rounded-md hover:bg-green-400 hover:text-[#0a192f] transition flex items-center gap-2"
+              className="px-6 py-3 border border-green-400 text-green-400 rounded-md hover:bg-green-400 hover:text-[#0a192f] transition flex items-center gap-2 cursor-target"
             >
               ⬇ Resume
             </a>
             <a
               href="https://linkedin.com/in/shivam-rana-35513a300"
               target="_blank"
-              className="px-6 py-3 border border-blue-400 text-blue-400 rounded-md hover:bg-blue-400 hover:text-[#0a192f] transition flex items-center gap-2"
+              className="px-6 py-3 border border-blue-400 text-blue-400 rounded-md hover:bg-blue-400 hover:text-[#0a192f] transition flex items-center gap-2 cursor-target"
             >
               <Linkedin /> LinkedIn
             </a>
             <a
               href="https://github.com/Shiv090703"
               target="_blank"
-              className="px-6 py-3 border border-gray-400 text-gray-300 rounded-md hover:bg-gray-300 hover:text-[#0a192f] transition flex items-center gap-2"
+              className="px-6 py-3 border border-gray-400 text-gray-300 rounded-md hover:bg-gray-300 hover:text-[#0a192f] transition flex items-center gap-2 cursor-target"
             >
               <FaGithub /> GitHub
             </a>
@@ -210,12 +212,12 @@ export default function Portfolio() {
           transition={{ duration: 0.8 }}
           variants={fadeInUp}
         >
-          <h2 className="text-3xl font-bold text-white mb-6">
-            <span className="text-green-400">01.</span> About Me
+          <h2 className="text-3xl font-bold text-white mb-6 ">
+            <span className="text-green-400 cursor-target">01.</span> About Me
           </h2>
 
           <p className="text-gray-400 leading-relaxed max-w-3xl mb-4">
-            Hello! I’m <span className="text-white font-semibold">Shivam Rana</span>,
+            Hello! I’m <span className="text-white font-semibold cursor-target">Shivam Rana</span>,
             an MSc IT graduate with a passion for building modern, scalable, and
             user-friendly applications. My journey into tech started with curiosity
             about how software shapes everyday life, and over time it has grown into
@@ -223,8 +225,8 @@ export default function Portfolio() {
           </p>
 
           <p className="text-gray-400 leading-relaxed max-w-3xl mb-4">
-            I specialize in <span className="text-blue-400">.NET technologies</span> and
-            <span className="text-blue-400"> web development</span>, but I’m also
+            I specialize in <span className="text-blue-400 cursor-target">.NET technologies</span> and
+            <span className="text-blue-400 cursor-target"> web development</span>, but I’m also
             comfortable working with Java, Python, SQL, and modern frontend frameworks.
             I enjoy turning ideas into real solutions that are clean, efficient, and
             impactful.
@@ -248,23 +250,23 @@ export default function Portfolio() {
           variants={fadeInUp}
         >
           <h2 className="text-3xl font-bold text-white mb-12">
-            <span className="text-green-400">02.</span> My Skills
+            <span className="text-green-400 cursor-target">02.</span> My Skills
           </h2>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 ">
             {[
-              { name: "C#", icon: "devicon-csharp-plain colored" },
-              { name: "Java", icon: "devicon-java-plain colored" },
-              { name: "Python", icon: "devicon-python-plain colored" },
-              { name: "JavaScript", icon: "devicon-javascript-plain colored" },
-              { name: "ASP.NET", icon: "devicon-dot-net-plain colored" },
-              { name: "HTML", icon: "devicon-html5-plain colored" },
-              { name: "CSS", icon: "devicon-css3-plain colored" },
-              { name: "SQL Server", icon: "devicon-microsoftsqlserver-plain colored" },
-              { name: "MySQL", icon: "devicon-mysql-plain colored" },
-              { name: "Visual Studio", icon: "devicon-visualstudio-plain colored" },
-              { name: "VS Code", icon: "devicon-vscode-plain colored" },
-              { name: "Git", icon: "devicon-git-plain colored" },
+              { name: "C#", icon: "devicon-csharp-plain colored cursor-target" },
+              { name: "Java", icon: "devicon-java-plain colored cursor-target" },
+              { name: "Python", icon: "devicon-python-plain colored cursor-target" },
+              { name: "JavaScript", icon: "devicon-javascript-plain colored cursor-target" },
+              { name: "ASP.NET", icon: "devicon-dot-net-plain colored cursor-target" },
+              { name: "HTML", icon: "devicon-html5-plain colored cursor-target" },
+              { name: "CSS", icon: "devicon-css3-plain colored cursor-target" },
+              { name: "SQL Server", icon: "devicon-microsoftsqlserver-plain colored cursor-target" },
+              { name: "MySQL", icon: "devicon-mysql-plain colored cursor-target" },
+              { name: "Visual Studio", icon: "devicon-visualstudio-plain colored cursor-target" },
+              { name: "VS Code", icon: "devicon-vscode-plain colored cursor-target" },
+              { name: "Git", icon: "devicon-git-plain colored cursor-target" },
             ].map((skill) => (
               <div
                 key={skill.name}
@@ -287,7 +289,7 @@ export default function Portfolio() {
           variants={fadeInUp}
         >
           <h2 className="text-3xl font-bold text-white mb-12">
-            <span className="text-green-400">03.</span> My Journey
+            <span className="text-green-400 cursor-target">03.</span> My Journey
           </h2>
 
           <div className="relative border-l border-gray-700 pl-8 space-y-12">
@@ -299,7 +301,7 @@ export default function Portfolio() {
               <span className="absolute -left-5 top-0 w-3 h-3 bg-green-400 rounded-full" />
               <div className="flex items-center mb-2">
                 <FaGraduationCap className="w-6 h-6 text-green-400 mr-2" />
-                <h3 className="text-lg font-semibold text-white">MSc IT</h3>
+                <h3 className="text-lg font-semibold text-white cursor-target">MSc IT</h3>
               </div>
               <p className="text-gray-400 mb-1">
                 Sardar Patel University (2025) — CGPA: 7.11
@@ -317,7 +319,7 @@ export default function Portfolio() {
               <span className="absolute -left-5 top-0 w-3 h-3 bg-green-400 rounded-full" />
               <div className="flex items-center mb-2">
                 <FaGraduationCap className="w-6 h-6 text-green-400 mr-2" />
-                <h3 className="text-lg font-semibold text-white">BSc CS</h3>
+                <h3 className="text-lg font-semibold text-white cursor-target">BSc CS</h3>
               </div>
               <p className="text-gray-400 mb-1">
                 S. P. University (2023) — CGPA: 7.56
@@ -342,10 +344,10 @@ export default function Portfolio() {
           }}
         >
           <h2 className="text-3xl font-bold text-white mb-12">
-            <span className="text-green-400">04.</span> My Projects
+            <span className="text-green-400 cursor-target">04.</span> My Projects
           </h2>
           {/* Project Grid */}
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-6 ">
             {projects.map((proj, i) => (
               <motion.div
                 key={i}
@@ -390,7 +392,7 @@ export default function Portfolio() {
                 {/* Close Button */}
                 <button
                   onClick={() => setSelectedProject(null)}
-                  className="absolute top-3 right-3 text-gray-400 hover:text-green-400 text-xl"
+                  className="absolute top-3 right-3 text-gray-400 hover:text-green-400 text-xl cursor-target"
                 >
                   ✕
                 </button>
@@ -428,7 +430,7 @@ export default function Portfolio() {
                 <a
                   href={selectedProject.github}
                   target="_blank"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-green-400 text-[#0a192f] font-semibold rounded-md hover:bg-green-500 transition"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-green-400 text-[#0a192f] font-semibold rounded-md hover:bg-green-500 transition cursor-target"
                 >
                   <FaGithub /> View on GitHub
                 </a>
@@ -451,7 +453,7 @@ export default function Portfolio() {
           {/* Left Side - Text & Button */}
           <div className="md:w-2/3">
             <h2 className="text-3xl font-bold text-white mb-6">
-              <span className="text-green-400">05.</span> Resume
+              <span className="text-green-400 cursor-target">05.</span> Resume
             </h2>
             <p className="text-gray-400 mb-6">
               Download my resume to see my full education, projects, and skills.
@@ -459,7 +461,7 @@ export default function Portfolio() {
             <a
               href="/Shivam-Rana.pdf"
               download
-              className="px-8 py-3 border border-green-400 text-green-400 rounded-md hover:bg-green-400 hover:text-[#0a192f] transition text-sm font-medium"
+              className="px-8 py-3 border border-green-400 text-green-400 rounded-md hover:bg-green-400 hover:text-[#0a192f] transition text-sm font-medium cursor-target"
             >
               ⬇ Download My Resume
             </a>
@@ -480,29 +482,29 @@ export default function Portfolio() {
           {/* Left Side - Text & Button */}
           <div className="md:w-2/3">
             <h2 className="text-3xl font-bold text-white mb-6">
-              <span className="text-green-400">06.</span> Get In Touch
+              <span className="text-green-400 cursor-target">06.</span> Get In Touch
             </h2>
             <p className="text-gray-400 mb-6">
               I’m open to new opportunities. Whether you have a question or just want to say hi, my inbox is always open.
             </p>
             <a
               href="mailto:Shivamrana090703@gmail.com"
-              className="px-6 py-3 border border-blue-400 text-blue-400 rounded-md hover:bg-blue-400 hover:text-[#0a192f] transition"
+              className="px-6 py-3 border border-blue-400 text-blue-400 rounded-md hover:bg-blue-400 hover:text-[#0a192f] transition cursor-target"
             >
               Say Hello
             </a>
 
             <div className="flex gap-6 mt-6 text-gray-400">
-              <a href="mailto:Shivamrana090703@gmail.com" target="_blank" className="hover:text-green-400 transition">
+              <a href="mailto:Shivamrana090703@gmail.com" target="_blank" className="hover:text-green-400 transition cursor-target">
                 <Mail className="w-6 h-6" />
               </a>
-              <a href="tel:+918799341427" target="_blank" className="hover:text-green-400 transition">
+              <a href="tel:+918799341427" target="_blank" className="hover:text-green-400 transition cursor-target">
                 <Phone className="w-6 h-6" />
               </a>
-              <a href="https://linkedin.com/in/shivam-rana-35513a300" target="_blank" className="hover:text-green-400 transition">
+              <a href="https://linkedin.com/in/shivam-rana-35513a300" target="_blank" className="hover:text-green-400 transition cursor-target">
                 <Linkedin className="w-6 h-6" />
               </a>
-              <a href="https://github.com/Shiv090703" target="_blank" className="hover:text-green-400 transition">
+              <a href="https://github.com/Shiv090703" target="_blank" className="hover:text-green-400 transition cursor-target">
                 <Github className="w-6 h-6" />
               </a>
             </div>
@@ -513,7 +515,7 @@ export default function Portfolio() {
       <footer className="bg-[#0a192f] border-t border-gray-800 text-gray-500 py-6 text-center text-sm">
         <p>
           Designed & Built by{" "}
-          <span className="text-green-400">Shivam Rana</span> © 2025
+          <span className="text-green-400 cursor-target">Shivam Rana</span> © 2025
         </p>
       </footer>
     </div>
