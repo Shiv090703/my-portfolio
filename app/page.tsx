@@ -2,11 +2,11 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Phone, Linkedin, Github } from "lucide-react";
-import { FaJava, FaMicrosoft } from "react-icons/fa";
 import { FaGraduationCap } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { Typewriter } from 'react-simple-typewriter';
-import TargetCursor from '../components/TargetCursor'; // if in parent folder
+import TargetCursor from '../components/TargetCursor';
+import Image from "next/image"; 
 export default function Portfolio() {
   const [active, setActive] = useState("Home");
   // Smooth scroll
@@ -128,7 +128,7 @@ export default function Portfolio() {
             transition={{ duration: 4, repeat: Infinity }}
             className="relative"
           >
-            <img
+            <Image
               src="/profile.jpg"
               alt="Shivam Rana"
               className="w-48 h-48 md:w-64 md:h-64 rounded-full shadow-lg object-cover cursor-target"
@@ -404,10 +404,10 @@ export default function Portfolio() {
 
                 {/* Image Slider */}
                 <div className="flex overflow-x-auto gap-4 snap-x mb-4">
-                  {selectedProject.images.map((img, idx) => (
+                  {selectedProject.images.map((Image, idx) => (
                     <img
                       key={idx}
-                      src={img}
+                      src={Image}
                       alt="Project screenshot"
                       className="w-80 h-48 object-cover rounded-md shadow-md snap-center"
                     />
