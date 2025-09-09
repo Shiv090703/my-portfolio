@@ -1,10 +1,12 @@
 "use client";
 import { useState, useEffect } from "react";
-import { motion,AnimatePresence} from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Phone, Linkedin, Github } from "lucide-react";
-import { FaJava, FaMicrosoft } from "react-icons/fa"; // Java, SQL Server alternative
+import { FaJava, FaMicrosoft } from "react-icons/fa";
 import { FaGraduationCap } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
+import { Typewriter } from 'react-simple-typewriter';
+
 
 export default function Portfolio() {
   const [active, setActive] = useState("Home");
@@ -65,7 +67,9 @@ export default function Portfolio() {
     // ➕ Add more projects here
   ];
   return (
+
     <div className="bg-[#0a192f] text-gray-300 font-sans scroll-smooth">
+      
       {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 bg-[#0a192f]/90 backdrop-blur border-b border-gray-800 text-white z-50">
         <div className="max-w-6xl mx-auto flex justify-between items-center p-4">
@@ -106,22 +110,34 @@ export default function Portfolio() {
       {/* Home Section */}
       <section
         id="Home"
-        className="min-h-screen flex flex-col md:flex-row justify-center items-center text-center md:text-left px-6 gap-10"
+        className="min-h-screen flex flex-col md:flex-row justify-center items-center text-center md:text-left px-6 gap-10 relative"
       >
-        {/* Profile Photo */}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          transition={{ duration: 0.8 }}
-          variants={fadeInUp}
-          className="flex justify-center"
-        >
-          <img
-            src="/profile.jpg" // 👉 place your image in /public/profile.jpg
-            alt="Shivam Rana"
-            className="w-48 h-48 md:w-64 md:h-64 rounded-full shadow-lg object-cover"
-          />
-        </motion.div>
+        {/* Background Decoration */}
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#0a192f] via-[#0f223f] to-[#0a192f]" />
+
+        {/* Profile Photo with Floating Effect + ShapeBlur */}
+        <div className="relative flex justify-center items-center">
+          
+
+          {/* Floating Photo */}
+          <motion.div
+            initial={{ y: 0 }}
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 4, repeat: Infinity }}
+            className="relative"
+          >
+            <img
+              src="/profile.jpg"
+              alt="Shivam Rana"
+              className="w-48 h-48 md:w-64 md:h-64 rounded-full shadow-lg object-cover"
+            />
+
+            {/* Open to Work Badge */}
+            <div className="absolute bottom-2 right-2 bg-green-500 text-white text-xs font-semibold px-2 py-1 rounded-full shadow-lg">
+              Open to Work
+            </div>
+          </motion.div>
+        </div>
         {/* Home Text */}
         <motion.div
           initial="hidden"
@@ -137,43 +153,54 @@ export default function Portfolio() {
           </h2>
 
           <h3 className="text-2xl md:text-4xl font-semibold text-gray-300 mb-6">
-            I’m a <span className="text-blue-400">.NET & Web Developer</span> passionate about building
-            clean, modern, and high-performance digital experiences.
+            I’m a{" "}
+            <span className="text-blue-400">
+              <Typewriter
+                words={[".NET Developer", "Web Developer", "Problem Solver", "Open to Opportunities"]}
+                loop={0}
+                cursor
+                cursorStyle="|"
+                typeSpeed={80}
+                deleteSpeed={50}
+                delaySpeed={1500}
+              />
+            </span>
           </h3>
 
           <p className="text-gray-400 max-w-xl mb-8 leading-relaxed">
-            Currently pursuing <span className="text-white font-semibold">MSc in Information Technology</span>,
-            with a strong foundation in <span className="text-white font-semibold">C#, ASP.NET, Java, and modern web technologies</span>.
-            I enjoy solving real-world problems through <span className="text-white font-semibold">clean code</span>,
-            continuous learning, and creating software that makes an impact.
+            I have recently completed my <span className="text-white font-semibold">MSc in Information Technology</span>,
+            building a solid foundation in <span className="text-white font-semibold">C#, ASP.NET, Java, and modern web technologies</span>.
+            Currently, I am seeking new opportunities to apply my knowledge, sharpen my skills, and contribute to impactful digital solutions
+            through <span className="text-white font-semibold">clean code</span>, continuous learning, and innovation.
           </p>
 
+
+          {/* Buttons */}
           <div className="flex flex-wrap justify-center md:justify-start gap-4">
             <a
               href="/Shivam-Rana.pdf"
               download
-              className="px-6 py-3 border border-green-400 text-green-400 rounded-md hover:bg-green-400 hover:text-[#0a192f] transition"
+              className="px-6 py-3 border border-green-400 text-green-400 rounded-md hover:bg-green-400 hover:text-[#0a192f] transition flex items-center gap-2"
             >
               ⬇ Resume
             </a>
             <a
               href="https://linkedin.com/in/shivam-rana-35513a300"
               target="_blank"
-              className="px-6 py-3 border border-blue-400 text-blue-400 rounded-md hover:bg-blue-400 hover:text-[#0a192f] transition"
+              className="px-6 py-3 border border-blue-400 text-blue-400 rounded-md hover:bg-blue-400 hover:text-[#0a192f] transition flex items-center gap-2"
             >
-              LinkedIn
+              <Linkedin /> LinkedIn
             </a>
             <a
               href="https://github.com/Shiv090703"
               target="_blank"
-              className="px-6 py-3 border border-gray-400 text-gray-300 rounded-md hover:bg-gray-300 hover:text-[#0a192f] transition"
+              className="px-6 py-3 border border-gray-400 text-gray-300 rounded-md hover:bg-gray-300 hover:text-[#0a192f] transition flex items-center gap-2"
             >
-              GitHub
+              <FaGithub /> GitHub
             </a>
           </div>
         </motion.div>
       </section>
-
       {/* About */}
       <section id="about" className="max-w-6xl mx-auto px-6 py-20">
         <motion.div
@@ -248,7 +275,6 @@ export default function Portfolio() {
               </div>
             ))}
           </div>
-
         </motion.div>
       </section>
       {/* Education */}
@@ -303,117 +329,114 @@ export default function Portfolio() {
           </div>
         </motion.div>
       </section>
-
-
       {/* Projects */}
       <section id="projects" className="max-w-6xl mx-auto px-6 py-20">
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        variants={{
-          hidden: { opacity: 0, y: 50 },
-          visible: { opacity: 1, y: 0 },
-        }}
-      >
-        <h2 className="text-3xl font-bold text-white mb-12">
-          <span className="text-green-400">04.</span> My Projects
-        </h2>
-
-        {/* Project Grid */}
-        <div className="grid md:grid-cols-2 gap-6">
-          {projects.map((proj, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ scale: 1.05 }}
-              onClick={() => setSelectedProject(proj)}
-              className="bg-[#112240] p-6 rounded-md border border-gray-700 hover:border-green-400 shadow-md transition cursor-pointer"
-            >
-              <h3 className="text-xl font-semibold text-white mb-2">
-                {proj.title}
-              </h3>
-              <p className="text-gray-400 text-sm mb-4">{proj.desc}</p>
-              <div className="flex flex-wrap gap-2">
-                {proj.tech.map((t) => (
-                  <span
-                    key={t}
-                    className="px-2 py-1 bg-green-400 text-[#0a192f] text-xs rounded-md"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
-
-      {/* Modal */}
-      <AnimatePresence>
-        {selectedProject && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/70 backdrop-blur flex justify-center items-center z-50"
-          >
-            <motion.div
-              initial={{ scale: 0.8 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.8 }}
-              className="bg-[#0a192f] max-w-2xl w-full p-6 rounded-lg shadow-lg text-white relative"
-            >
-              {/* Close Button */}
-              <button
-                onClick={() => setSelectedProject(null)}
-                className="absolute top-3 right-3 text-gray-400 hover:text-green-400 text-xl"
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          variants={{
+            hidden: { opacity: 0, y: 50 },
+            visible: { opacity: 1, y: 0 },
+          }}
+        >
+          <h2 className="text-3xl font-bold text-white mb-12">
+            <span className="text-green-400">04.</span> My Projects
+          </h2>
+          {/* Project Grid */}
+          <div className="grid md:grid-cols-2 gap-6">
+            {projects.map((proj, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ scale: 1.05 }}
+                onClick={() => setSelectedProject(proj)}
+                className="bg-[#112240] p-6 rounded-md border border-gray-700 hover:border-green-400 shadow-md transition cursor-pointer"
               >
-                ✕
-              </button>
+                <h3 className="text-xl font-semibold text-white mb-2">
+                  {proj.title}
+                </h3>
+                <p className="text-gray-400 text-sm mb-4">{proj.desc}</p>
+                <div className="flex flex-wrap gap-2">
+                  {proj.tech.map((t) => (
+                    <span
+                      key={t}
+                      className="px-2 py-1 bg-green-400 text-[#0a192f] text-xs rounded-md"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
 
-              <h3 className="text-2xl font-bold mb-2">
-                {selectedProject.title}
-              </h3>
-              <p className="text-gray-400 mb-4">{selectedProject.desc}</p>
-
-              {/* Image Slider */}
-              <div className="flex overflow-x-auto gap-4 snap-x mb-4">
-                {selectedProject.images.map((img, idx) => (
-                  <img
-                    key={idx}
-                    src={img}
-                    alt="Project screenshot"
-                    className="w-80 h-48 object-cover rounded-md shadow-md snap-center"
-                  />
-                ))}
-              </div>
-
-              {/* Tech Stack */}
-              <div className="flex flex-wrap gap-2 mb-4">
-                {selectedProject.tech.map((t) => (
-                  <span
-                    key={t}
-                    className="px-2 py-1 bg-green-400 text-[#0a192f] text-xs rounded-md"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-
-              {/* GitHub Link */}
-              <a
-                href={selectedProject.github}
-                target="_blank"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-green-400 text-[#0a192f] font-semibold rounded-md hover:bg-green-500 transition"
+        {/* Modal */}
+        <AnimatePresence>
+          {selectedProject && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/70 backdrop-blur flex justify-center items-center z-50"
+            >
+              <motion.div
+                initial={{ scale: 0.8 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0.8 }}
+                className="bg-[#0a192f] max-w-2xl w-full p-6 rounded-lg shadow-lg text-white relative"
               >
-                <FaGithub /> View on GitHub
-              </a>
+                {/* Close Button */}
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  className="absolute top-3 right-3 text-gray-400 hover:text-green-400 text-xl"
+                >
+                  ✕
+                </button>
+
+                <h3 className="text-2xl font-bold mb-2">
+                  {selectedProject.title}
+                </h3>
+                <p className="text-gray-400 mb-4">{selectedProject.desc}</p>
+
+                {/* Image Slider */}
+                <div className="flex overflow-x-auto gap-4 snap-x mb-4">
+                  {selectedProject.images.map((img, idx) => (
+                    <img
+                      key={idx}
+                      src={img}
+                      alt="Project screenshot"
+                      className="w-80 h-48 object-cover rounded-md shadow-md snap-center"
+                    />
+                  ))}
+                </div>
+
+                {/* Tech Stack */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {selectedProject.tech.map((t) => (
+                    <span
+                      key={t}
+                      className="px-2 py-1 bg-green-400 text-[#0a192f] text-xs rounded-md"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+
+                {/* GitHub Link */}
+                <a
+                  href={selectedProject.github}
+                  target="_blank"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-green-400 text-[#0a192f] font-semibold rounded-md hover:bg-green-500 transition"
+                >
+                  <FaGithub /> View on GitHub
+                </a>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </section>
+          )}
+        </AnimatePresence>
+      </section>
 
       {/* Resume */}
       <section id="resume" className="max-w-6xl mx-auto px-6 py-20">
