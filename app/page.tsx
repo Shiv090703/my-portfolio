@@ -7,7 +7,6 @@ import { FaGithub } from "react-icons/fa";
 import { Typewriter } from 'react-simple-typewriter';
 import TargetCursor from '../components/TargetCursor';
 import Image from "next/image"; 
-import { Analytics } from "@vercel/analytics/next"
 export default function Portfolio() {
   const [active, setActive] = useState("Home");
   // Smooth scroll
@@ -520,7 +519,6 @@ export default function Portfolio() {
           Designed & Built by{" "}
           <span className="text-green-400 cursor-target">Shivam Rana</span> © 2025
         </p>
-        <Analytics />
       </footer>
     </div>
   );
