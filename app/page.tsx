@@ -7,6 +7,7 @@ import { FaGithub } from "react-icons/fa";
 import { Typewriter } from 'react-simple-typewriter';
 import TargetCursor from '../components/TargetCursor';
 import Image from "next/image"; 
+import { Analytics } from "@vercel/analytics/next"
 export default function Portfolio() {
   const [active, setActive] = useState("Home");
   // Smooth scroll
