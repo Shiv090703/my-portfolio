@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Phone, Linkedin, Github } from "lucide-react";
+import { Mail, Phone, Linkedin, Github, FileX } from "lucide-react";
 import { FaGraduationCap } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { Typewriter } from 'react-simple-typewriter';
@@ -129,6 +129,8 @@ export default function Portfolio() {
             className="relative"
           >
             <Image
+              width={500}
+              height={500}
               src="/profile.jpg"
               alt="Shivam Rana"
               className="w-48 h-48 md:w-64 md:h-64 rounded-full shadow-lg object-cover cursor-target"
@@ -249,7 +251,7 @@ export default function Portfolio() {
           transition={{ duration: 0.8 }}
           variants={fadeInUp}
         >
-          <h2 className="text-3xl font-bold text-white mb-12">
+          <h2 className="text-3xl font-bold text-white mb-12 ">
             <span className="text-green-400 cursor-target">02.</span> My Skills
           </h2>
 
@@ -270,7 +272,7 @@ export default function Portfolio() {
             ].map((skill) => (
               <div
                 key={skill.name}
-                className="flex flex-col items-center justify-center p-6 bg-[#112240] rounded-lg border border-gray-700 hover:border-green-400 hover:scale-105 transition transform"
+                className="flex flex-col items-center justify-center p-6 bg-[#112240] rounded-lg border border-gray-700 hover:border-green-400 hover:scale-105 transition transform cursor-target"
               >
                 <i className={`${skill.icon} text-5xl`}></i>
                 <p className="mt-3 text-sm font-semibold text-green-400">{skill.name}</p>
@@ -347,7 +349,7 @@ export default function Portfolio() {
             <span className="text-green-400 cursor-target">04.</span> My Projects
           </h2>
           {/* Project Grid */}
-          <div className="grid md:grid-cols-2 gap-6 ">
+          <div className="grid md:grid-cols-2 gap-6  ">
             {projects.map((proj, i) => (
               <motion.div
                 key={i}
