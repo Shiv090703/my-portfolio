@@ -520,6 +520,7 @@ export default function Portfolio() {
           Designed & Built by{" "}
           <span className="text-green-400 cursor-target">Shivam Rana</span> © 2025
         </p>
+        <Analytics />
       </footer>
     </div>
   );
