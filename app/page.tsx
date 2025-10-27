@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Phone, Linkedin, Github, FileX } from "lucide-react";
+import { Mail, Phone, Linkedin, Github, FileX, Menu, X } from "lucide-react";
 import { FaGraduationCap } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { Typewriter } from 'react-simple-typewriter';
@@ -9,14 +9,27 @@ import TargetCursor from '../components/TargetCursor';
 import Image from "next/image"; 
 export default function Portfolio() {
   const [active, setActive] = useState("Home");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   // Smooth scroll
   const scrollTo = (id: string) => {
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
       setActive(id);
+      setIsMenuOpen(false); // Close menu on mobile after scroll
     }
   };
+  // Detect mobile device
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   // Highlight active section on scroll
   useEffect(() => {
     const handleScroll = () => {
@@ -68,10 +81,12 @@ export default function Portfolio() {
   return (
 
     <div className="bg-[#0a192f] text-gray-300 font-sans scroll-smooth">
-      <TargetCursor 
-        spinDuration={2}
-        hideDefaultCursor={true}
-      />
+      {isMobile ? null : (
+        <TargetCursor
+          spinDuration={2}
+          hideDefaultCursor={true}
+        />
+      )}
       {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 bg-[#0a192f]/90 backdrop-blur border-b border-gray-800 text-white z-50">
         <div className="max-w-6xl mx-auto flex justify-between items-center p-4">
@@ -83,8 +98,8 @@ export default function Portfolio() {
             Shivam Rana
           </button>
 
-          {/* Menu */}
-          <div className="space-x-6">
+          {/* Desktop Menu */}
+          <div className="hidden md:flex space-x-6">
             {[
               "Home",
               "about",
@@ -106,7 +121,43 @@ export default function Portfolio() {
               </button>
             ))}
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden text-white hover:text-green-400 transition cursor-target"
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
+
+        {/* Mobile Dropdown Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden absolute top-full left-0 right-0 bg-[#0a192f]/95 backdrop-blur border-b border-gray-800">
+            <div className="flex flex-col items-center py-4 space-y-4">
+              {[
+                "Home",
+                "about",
+                "skills",
+                "education",
+                "projects",
+                "resume",
+                "contact",
+              ].map((id) => (
+                <button
+                  key={id}
+                  onClick={() => scrollTo(id)}
+                  className={`capitalize text-sm transition cursor-target ${active === id
+                    ? "text-green-400 font-semibold"
+                    : "text-gray-400 hover:text-green-400"
+                    }`}
+                >
+                  {id}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Home Section */}
@@ -119,8 +170,6 @@ export default function Portfolio() {
 
         {/* Profile Photo with Floating Effect + ShapeBlur */}
         <div className="relative flex justify-center items-center">
-          
-
           {/* Floating Photo */}
           <motion.div
             initial={{ y: 0 }}
@@ -133,7 +182,7 @@ export default function Portfolio() {
               height={500}
               src="/profile.jpg"
               alt="Shivam Rana"
-              className="w-48 h-48 md:w-64 md:h-64 rounded-full shadow-lg object-cover cursor-target"
+              className={`rounded-full shadow-lg object-cover cursor-target ${isMobile ? 'w-32 h-32' : 'w-48 h-48 md:w-64 md:h-64'}`}
             />
 
             {/* Open to Work Badge */}
