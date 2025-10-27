@@ -373,7 +373,7 @@ export default function Portfolio() {
                 <h3 className="text-lg font-semibold text-white cursor-target">BSc CS</h3>
               </div>
               <p className="text-gray-400 mb-1">
-                S. P. University (2023) — CGPA: 7.56
+                Sardar Patel University (2023) — CGPA: 7.56
               </p>
               <p className="text-gray-400 text-sm">
                 Key Subjects: Programming, Algorithms, Database Systems, Web Development.
