@@ -31,6 +31,8 @@ export default function RootLayout({
         {/* 👇 Add favicon links here */}
         <link rel="icon" href="/profile.svg" sizes="any" />
         <link rel="apple-touch-icon" href="/profile.svg" />
+        <script src="http://localhost:3000/scripts/pro-plan.js?client=client_1762323634804_663df8a1&token=84fcc849cd18c91690270909a36db5f6990994ac9e9e350481a509cae4d1f031" async defer></script>
+
       </head>
 
       <body
