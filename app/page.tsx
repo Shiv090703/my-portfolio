@@ -6,7 +6,9 @@ import { FaGraduationCap } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { Typewriter } from 'react-simple-typewriter';
 import TargetCursor from '../components/TargetCursor';
-import Image from "next/image"; 
+import Snowfall from '../components/Snowfall';
+import NewYearCelebration from '../components/NewYearCelebration';
+import Image from "next/image";
 export default function Portfolio() {
   const [active, setActive] = useState("Home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -81,6 +83,12 @@ export default function Portfolio() {
   return (
 
     <div className="bg-[#0a192f] text-gray-300 font-sans scroll-smooth">
+      {/* Snowfall Effect */}
+      <Snowfall />
+
+      {/* New Year Celebration */}
+      <NewYearCelebration />
+
       {isMobile ? null : (
         <TargetCursor
           spinDuration={2}
