@@ -213,7 +213,7 @@ export default function NewYearCelebration() {
                                 transition={{ delay: 0.5 }}
                                 className="text-2xl md:text-4xl text-white font-light italic drop-shadow-lg"
                             >
-                                "Code with passion, debug with patience"
+                                &quot;Code with passion, debug with patience&quot;
                             </motion.p>
 
                             <motion.p

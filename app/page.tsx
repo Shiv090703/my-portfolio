@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Phone, Linkedin, Github, FileX, Menu, X } from "lucide-react";
+import { Mail, Phone, Linkedin, Github, Menu, X } from "lucide-react";
 import { FaGraduationCap } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { Typewriter } from 'react-simple-typewriter';
@@ -463,11 +463,13 @@ export default function Portfolio() {
 
                 {/* Image Slider */}
                 <div className="flex overflow-x-auto gap-4 snap-x mb-4">
-                  {selectedProject.images.map((Image, idx) => (
-                    <img
+                  {selectedProject.images.map((imgSrc, idx) => (
+                    <Image
                       key={idx}
-                      src={Image}
+                      src={imgSrc}
                       alt="Project screenshot"
+                      width={320}
+                      height={192}
                       className="w-80 h-48 object-cover rounded-md shadow-md snap-center"
                     />
                   ))}
