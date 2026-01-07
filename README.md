@@ -12,7 +12,7 @@
 This is my personal **Portfolio Website**, built with **Next.js 14 (App Router)** and deployed on **Vercel**.  
 It showcases my skills, projects, and experience in **.NET development, cloud, and full-stack technologies**.  
 
-👉 **Live Demo:** [https://shivamranamy-portfolio.vercel.app/]  
+👉 **Live Demo:** [https://shivamgrana.vercel.app/]  
 
 ---
 
